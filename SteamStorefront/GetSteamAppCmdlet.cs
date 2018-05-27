@@ -30,7 +30,29 @@ namespace SteamStorefront
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            WriteObject(Task.Run(async () => await AppDetails.GetAsync(AppId, Region, Language)).Result);
+
+            try
+            {
+                WriteObject(Task.Run(async () => await AppDetails.GetAsync(AppId, Region, Language)).Result);
+            }
+            catch (PipelineStoppedException)
+            {
+                // Nothing to do here, the try block is simply to handle exceptions when the user aborts the command
+                return;
+            }
+            catch (AggregateException ex)
+            {
+                foreach (var error in ex.InnerExceptions)
+                {
+                    WriteError(new ErrorRecord(error, "UnknownError", ErrorCategory.NotSpecified, null));
+                }
+                return;
+            }
+            catch (Exception ex)
+            {
+                WriteError(new ErrorRecord(ex, "UnknownError", ErrorCategory.NotSpecified, null));
+                return;
+            }
         }
 
     }
