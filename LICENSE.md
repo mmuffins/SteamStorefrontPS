@@ -35,3 +35,7 @@ License (MIT) https://github.com/PowerShell/PowerShell-Tests/blob/master/LICENSE
 Newtonsoft.Json https://www.newtonsoft.com/json
 Copyright (c) 2007 James Newton-King
 License (MIT) https://raw.githubusercontent.com/JamesNK/Newtonsoft.Json/master/LICENSE.md
+
+XmlDoc2CmdletDoc https://github.com/red-gate/XmlDoc2CmdletDoc
+Copyright (c) 2014-2016, Red Gate Software Ltd. All rights reserved.
+License (New BSD) https://github.com/red-gate/XmlDoc2CmdletDoc/blob/master/LICENSE.md
