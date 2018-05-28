@@ -12,16 +12,15 @@ namespace SteamStorefront
 
     /// <summary>
     /// <para type="synopsis">Retrieves a list of all featured app categories and applications in these categories.</para>
-    /// <para type="description">The Get-SteamFeaturedCategory cmdlet gets a list of all featured categories on </para>
-    /// <para type="description">steam front page, e.g. new releases, top sellers, spotlights or daily deals and lists</para>
-    /// <para type="description">all applications in each of the categories.</para>
+    /// <para type="description">The Get-SteamFeaturedCategory cmdlet gets a list of all featured categories on 
+    /// steam front page, e.g. new releases, top sellers, spotlights or daily deals and lists 
+    /// all applications in each of the categories.</para>
     /// <para type="example"></para>
     /// </summary>    
     /// <example>
     ///   <para>Example 1: Get a list of all featured app categories by region</para>
     ///   <para></para>
     ///   <code>PS C:\>Get-SteamFeaturedCategory -Region "US"</code>
-    ///   <para></para>
     ///   <para>This command gets a list of all featured app categories for region US.</para>
     /// </example>
     [Cmdlet(VerbsCommon.Get, "SteamFeaturedCategory")]

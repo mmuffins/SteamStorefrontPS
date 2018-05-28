@@ -11,24 +11,22 @@ namespace SteamStorefront
 {
     /// <summary>
     /// <para type="synopsis">Retrieves information about an application in the steam store.</para>
-    /// <para type="description">The Get-SteamApp cmdlet gets information about an application in the</para>
-    /// <para type="description">steam store. The returned object contains all information about the</para>
-    /// <para type="description">application that's available on the steam storefront api.</para>
+    /// <para type="description">The Get-SteamApp cmdlet gets information about an application in the 
+    /// steam store. The returned object contains all information about the 
+    /// application that's available on the steam storefront api.</para>
     /// <para type="example"></para>
     /// </summary>    
     /// <example>
     ///   <para>Example 1: Get an application by id</para>
     ///   <para></para>
     ///   <code>PS C:\>Get-SteamApp -AppId 323170</code>
-    ///   <para></para>
     ///   <para>This command gets steamapp with id 323170.</para>
     ///   <para></para>
     ///   <para>Example 2: Get an application by country and language</para>
     ///   <para></para>
     ///   <code>PS C:\>Get-SteamApp -AppId 323170 -Region "JP" -Language "german"</code>
-    ///   <para></para>
-    ///   <para>This command gets steamapp with id 323170 with regional parameters like date format,</para>
-    ///   <para>price or currency for the japanese steam store, with strings localized to german.</para>
+    ///   <para>This command gets steamapp with id 323170 with regional parameters like date format, 
+    ///   price or currency for the japanese steam store, with strings localized to german.</para>
     ///   <para></para>
     /// </example>
     [Cmdlet(VerbsCommon.Get, "SteamApp")]

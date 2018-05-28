@@ -12,24 +12,22 @@ namespace SteamStorefront
 
     /// <summary>
     /// <para type="synopsis">Retrieves information about a package in the steam store.</para>
-    /// <para type="description">The Get-SteamPackage cmdlet gets information about a package in the</para>
-    /// <para type="description">steam store. The returned object contains all information about the</para>
-    /// <para type="description">package that's available on the steam storefront api.</para>
+    /// <para type="description">The Get-SteamPackage cmdlet gets information about a package in the
+    /// steam store. The returned object contains all information about the
+    /// package that's available on the steam storefront api.</para>
     /// <para type="example"></para>
     /// </summary>    
     /// <example>
     ///   <para>Example 1: Get an application by id</para>
     ///   <para></para>
     ///   <code>PS C:\>Get-SteamPackage -PackageId 73194</code>
-    ///   <para></para>
     ///   <para>This command gets package with id 73194.</para>
     ///   <para></para>
     ///   <para>Example 2: Get an application by country and language</para>
     ///   <para></para>
     ///   <code>PS C:\>Get-SteamPackage -PackageId 73194 -Region "AT" -Language "spanish"</code>
-    ///   <para></para>
-    ///   <para>This command gets package with id 73194 with regional parameters like date format,</para>
-    ///   <para>price or currency for the austrian steam store, with strings localized to spanish.</para>
+    ///   <para>This command gets package with id 73194 with regional parameters like date format,
+    ///   price or currency for the austrian steam store, with strings localized to spanish.</para>
     ///   <para></para>
     /// </example>
     [Cmdlet(VerbsCommon.Get, "SteamPackage")]
