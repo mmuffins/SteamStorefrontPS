@@ -57,6 +57,9 @@ namespace SteamStorefront
 
         #endregion
 
+        /// <summary>
+        /// <para type="description">ProcessRecord method</para>
+        /// </summary>
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
