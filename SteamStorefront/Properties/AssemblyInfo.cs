@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SteamStorefront")]
-[assembly: AssemblyDescription("A powershell module that retrieves data from the Steam StoreFront API.")]
+[assembly: AssemblyDescription("Cmdlets that retrieve data from the Steam StoreFront API.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michael Kellner")]
 [assembly: AssemblyProduct("SteamStorefront")]
