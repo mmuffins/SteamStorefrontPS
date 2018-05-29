@@ -26,7 +26,7 @@ Third party software and libraries used:
 
 SteamStorefrontAPI https://github.com/mmuffins/SteamStorefrontAPI
 Copyright (c) 2018 Michael Kellner
-License (MIT) https://github.com/mmuffins/SteamStorefrontAPI
+License (MIT) https://github.com/mmuffins/SteamStorefrontAPI/blob/master/LICENSE.md
 
 Microsoft.PowerShell.5.ReferenceAssemblies https://msdn.microsoft.com/en-us/mt173057.aspx
 Copyright (c) 2015 Microsoft Corporation
