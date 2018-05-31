@@ -49,7 +49,7 @@ namespace SteamStorefront
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            var results = Task.Run(async () => await FeaturedCategories.GetAsync(Region, Language)).Result;
+            var results = Task.Run(async () => await FeaturedCategories.GetAsync(Region, Language)).Result.ToList();
             if(results != null && results.Count > 0)
             {
                 results.ForEach(res => WriteObject(res));
