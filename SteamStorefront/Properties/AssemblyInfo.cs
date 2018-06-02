@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michael Kellner")]
 [assembly: AssemblyProduct("SteamStorefront")]
-[assembly: AssemblyCopyright("Copyright © 2018")]
+[assembly: AssemblyCopyright("Copyright © 2018 Michael Kellner")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
