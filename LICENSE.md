@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2018 Michael Kellner
+Copyright (c) 2022 mmuffins
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,17 +25,17 @@ SOFTWARE.
 Third party software and libraries used:
 
 SteamStorefrontAPI https://github.com/mmuffins/SteamStorefrontAPI
-Copyright (c) 2018 Michael Kellner
+Copyright (c) 2022 mmuffins
 License (MIT) https://github.com/mmuffins/SteamStorefrontAPI/blob/master/LICENSE.md
-
-Microsoft.PowerShell.5.ReferenceAssemblies https://msdn.microsoft.com/en-us/mt173057.aspx
-Copyright (c) 2015 Microsoft Corporation
-License (MIT) https://github.com/PowerShell/PowerShell-Tests/blob/master/LICENSE
 
 Newtonsoft.Json https://www.newtonsoft.com/json
 Copyright (c) 2007 James Newton-King
 License (MIT) https://raw.githubusercontent.com/JamesNK/Newtonsoft.Json/master/LICENSE.md
 
 XmlDoc2CmdletDoc https://github.com/red-gate/XmlDoc2CmdletDoc
-Copyright (c) 2014-2016, Red Gate Software Ltd. All rights reserved.
+Copyright (c) 2014-2020, Red Gate Software Ltd and other contributors. All rights reserved.
 License (New BSD) https://github.com/red-gate/XmlDoc2CmdletDoc/blob/master/LICENSE.md
+
+System.Management.Automation https://github.com/PowerShell/PowerShell
+Copyright (c) Microsoft Corporation
+License (MIT) https://licenses.nuget.org/MIT
