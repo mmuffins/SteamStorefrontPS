@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/mmuffins/SteamStorefrontPS</RepositoryUrl>
     <Description>Cmdlets to retrieve data from the Steam StoreFront API.</Description>
     <Version>1.0.0.0</Version>
-    <Copyright>(c) $(Authors),</Copyright>
+    <Copyright>(c) $(Authors)</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
