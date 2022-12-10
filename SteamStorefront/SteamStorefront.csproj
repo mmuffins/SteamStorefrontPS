@@ -1,93 +1,43 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{482C4CD2-4F43-4CA5-83F8-F4046F1FF212}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SteamStorefront</RootNamespace>
-    <AssemblyName>SteamStorefront</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Authors>mmuffins</Authors>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/mmuffins/SteamStorefrontPS</RepositoryUrl>
+    <Description>Cmdlets to retrieve data from the Steam StoreFront API.</Description>
+    <Version>1.0.0.0</Version>
+    <Copyright>(c) $(Authors),</Copyright>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\SteamStorefront\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\SteamStorefront\SteamStorefront.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\SteamStorefront\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\SteamStorefront\SteamStorefront.xml</DocumentationFile>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SteamStorefrontAPI, Version=1.2.6759.40399, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamStorefrontAPI.1.2.6759.40399\lib\net461\SteamStorefrontAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.PowerShell.5.ReferenceAssemblies.1.1.0\lib\net4\System.Management.Automation.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="GetSteamPackageCmdlet.cs" />
-    <Compile Include="GetSteamFeaturedCategoryCmdlet.cs" />
-    <Compile Include="GetSteamFeaturedAppCmdlet.cs" />
-    <Compile Include="GetSteamAppCmdlet.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="PostBuild.ps1" />
-    <None Include="Push-PSGallery.ps1" />
-    <None Include="SteamStorefront.psd1">
+    <None Include="..\..\SteamStorefrontAPI\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\XmlDoc2CmdletDoc.0.2.10\build\XmlDoc2CmdletDoc.targets" Condition="Exists('..\packages\XmlDoc2CmdletDoc.0.2.10\build\XmlDoc2CmdletDoc.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\XmlDoc2CmdletDoc.0.2.10\build\XmlDoc2CmdletDoc.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\XmlDoc2CmdletDoc.0.2.10\build\XmlDoc2CmdletDoc.targets'))" />
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="SteamStorefrontAPI" Version="2.0.0.131" />
+    <PackageReference Include="System.Management.Automation" Version="7.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SteamStorefront.psd1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="dotnet publish $(ProjectPath) -c $(ConfigurationName) -o $(TargetDir) --no-build --self-contained&#xD;&#xA;pwsh -NoProfile -ExecutionPolicy Bypass -NonInteractive -file UpdateModuleManifest.ps1 -modulePath &quot;$(TargetDir)SteamStorefront.psd1&quot; -moduleVersion &quot;$(PackageVersion)&quot; -moduleOwner &quot;$(Authors)&quot; -moduleDescription &quot;$(Description)&quot; -moduleCopyright &quot;$(Copyright)&quot; -targetPath &quot;$(TargetFileName)&quot;&#xD;&#xA;xcopy /E /Y &quot;$(TargetDir)runtimes\win-x64\native&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;RD /S /Q &quot;$(TargetDir)runtimes\&quot;" />
   </Target>
-  <Target Name="PostBuildMacros">
-    <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
-      <Output TaskParameter="Assemblies" ItemName="Targets" />
-    </GetAssemblyIdentity>
-    <ItemGroup>
-      <VersionNumber Include="@(Targets->'%(Version)')" />
-    </ItemGroup>
-  </Target>
-  <PropertyGroup>
-    <PostBuildEventDependsOn>
-    $(PostBuildEventDependsOn);
-    PostBuildMacros;
-  </PostBuildEventDependsOn>
-    <PostBuildEvent>powershell -NoProfile -ExecutionPolicy Bypass -NonInteractive -file $(ProjectDir)PostBuild.ps1 -Psd1Path $(TargetDir)\SteamStorefront.psd1 -ProjectPath $(ProjectPath) -AssemblyInfo $(ProjectDir)Properties\AssemblyInfo.cs -TargetFileName $(TargetFileName) -Version @(VersionNumber)</PostBuildEvent>
-  </PropertyGroup>
+
 </Project>
