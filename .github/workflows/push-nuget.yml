@@ -73,10 +73,9 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: module
-        path: ${{ github.workspace }}/publish
+        path: ${{ github.workspace }}/publish/${{ env.module_name }}
         
-    - name: Push to NuGet
+    - name: Publish to gallery
       shell: pwsh
       run: |
-        Set-Location -Path '${{ github.workspace }}/publish'
-        Get-ChildItem
+        Publish-Module -NuGetApiKey '${{ secrets.psgallery_secret }}' -Path '${{ github.workspace }}/publish/${{ env.module_name }}'
