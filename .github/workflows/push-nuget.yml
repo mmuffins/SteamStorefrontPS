@@ -29,10 +29,6 @@ jobs:
     - name: Setup msbuild
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Install platyPS
-      shell: pwsh
-      run: Install-Module -Name platyPS -Scope CurrentUser
-
     - name: Set version number
       shell: pwsh
       run: |
@@ -47,7 +43,9 @@ jobs:
     - name: Build Help
       shell: pwsh
       run: |
+        Install-Module -Name platyPS -Scope CurrentUser
         Import-Module platyPS
+        Import-Module "${{ github.workspace }}/publish/${{ env.module_name }}"
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
