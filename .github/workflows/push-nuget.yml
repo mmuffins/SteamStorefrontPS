@@ -6,7 +6,8 @@ on:
     branches: [ "master" ]
     
 env:
-  base_version_number: "2.0.0" 
+  base_version_number: "2.0.0"
+  module_name: "SteamStorefront"
 
 jobs:
 
@@ -41,7 +42,12 @@ jobs:
 
     - name: Build Solution
       shell: pwsh
-      run: dotnet build --configuration Release --output "${{ github.workspace }}/publish" /p:PackageVersion=${{ env.VERSION }}
+      run: dotnet build --configuration Release --output "${{ github.workspace }}/publish/${{ env.module_name }}" /p:PackageVersion=${{ env.VERSION }}
+
+    - name: Build Help
+      shell: pwsh
+      run: |
+        Import-Module platyPS
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
