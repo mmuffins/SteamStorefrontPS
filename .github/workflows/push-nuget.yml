@@ -44,7 +44,7 @@ jobs:
       shell: pwsh
       run: |
         get-childitem -path "${{ github.workspace }}/${{ env.module_name }}"
-        Install-Module -Name platyPS -Scope CurrentUser
+        Install-Module -Name platyPS -Scope CurrentUser -force
         Import-Module platyPS
         Import-Module "${{ github.workspace }}/publish/${{ env.module_name }}"
         New-ExternalHelp -Path "${{ github.workspace }}/${{ env.module_name }}/help" -OutputPath "${{ github.workspace }}/publish/${{ env.module_name }}"
