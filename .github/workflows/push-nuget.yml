@@ -28,6 +28,10 @@ jobs:
     - name: Setup msbuild
       uses: microsoft/setup-msbuild@v1.0.2
 
+    - name: Install platyPS
+      shell: pwsh
+      run: Install-Module -Name platyPS -Scope CurrentUser
+
     - name: Set version number
       shell: pwsh
       run: |
