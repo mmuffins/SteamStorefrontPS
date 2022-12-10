@@ -53,7 +53,6 @@ jobs:
     - name: Build Help
       shell: pwsh
       run: |
-        $PSVersionTable
         Import-Module platyPS
         New-ExternalHelp -Path "${{ github.workspace }}/${{ env.module_name }}/help" -OutputPath "${{ github.workspace }}/publish/${{ env.module_name }}"
 
@@ -73,7 +72,7 @@ jobs:
     - name: Get artifacts
       uses: actions/download-artifact@v3
       with:
-        name: nuget
+        name: module
         path: ${{ github.workspace }}/publish
         
     - name: Push to NuGet
