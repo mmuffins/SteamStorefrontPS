@@ -14,7 +14,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\SteamStorefrontAPI\LICENSE.md">
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -28,9 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="README.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="SteamStorefront.psd1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
