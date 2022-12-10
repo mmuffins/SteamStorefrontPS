@@ -16,6 +16,10 @@ jobs:
     timeout-minutes: 5
 
     steps:
+    - name: Build Help
+      shell: pwsh
+      run: $PSVersionTable
+
     - name: Checkout
       uses: actions/checkout@v3
       with:
@@ -53,6 +57,7 @@ jobs:
     - name: Build Help
       shell: pwsh
       run: |
+        $PSVersionTable
         get-childitem -path "${{ github.workspace }}/publish/${{ env.module_name }}"
         Import-Module platyPS
         Import-Module -Name "${{ github.workspace }}/publish/${{ env.module_name }}"
