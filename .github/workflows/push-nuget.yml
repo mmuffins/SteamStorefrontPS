@@ -44,12 +44,6 @@ jobs:
       shell: pwsh
       run: dotnet build --configuration Release --output "${{ github.workspace }}/publish/${{ env.module_name }}" /p:PackageVersion=${{ env.VERSION }}
 
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: module2
-        path: ${{ github.workspace }}/publish/${{ env.module_name }}
-
     - name: Build Help
       shell: pwsh
       run: |
