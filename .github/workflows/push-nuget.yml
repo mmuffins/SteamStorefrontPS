@@ -6,7 +6,8 @@ on:
     branches: [ "master" ]
     
 env:
-  base_version_number: "2.0.0" 
+  base_version_number: "2.0.0"
+  module_name: "SteamStorefront"
 
 jobs:
 
@@ -23,10 +24,14 @@ jobs:
     - name: Install .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 7.0.x
+        dotnet-version: 7.x
 
     - name: Setup msbuild
       uses: microsoft/setup-msbuild@v1.0.2
+      
+    - name: Install platyPS
+      shell: pwsh
+      run: Install-Module -Name platyPS -Scope CurrentUser -force
 
     - name: Set version number
       shell: pwsh
@@ -37,13 +42,19 @@ jobs:
 
     - name: Build Solution
       shell: pwsh
-      run: dotnet build --configuration Release --output "${{ github.workspace }}/publish /p:PackageVersion=${{ env.VERSION }}
+      run: dotnet build --configuration Release --output "${{ github.workspace }}/publish/${{ env.module_name }}" /p:PackageVersion=${{ env.VERSION }}
+
+    - name: Build Help
+      shell: pwsh
+      run: |
+        Import-Module platyPS
+        New-ExternalHelp -Path "${{ github.workspace }}/${{ env.module_name }}/help" -OutputPath "${{ github.workspace }}/publish/${{ env.module_name }}"
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: module
-        path: ${{ github.workspace }}/publish
+        path: ${{ github.workspace }}/publish/${{ env.module_name }}
 
   deploy:
     permissions:
@@ -55,11 +66,10 @@ jobs:
     - name: Get artifacts
       uses: actions/download-artifact@v3
       with:
-        name: nuget
-        path: ${{ github.workspace }}/publish
+        name: module
+        path: ${{ github.workspace }}/publish/${{ env.module_name }}
         
-    - name: Push to NuGet
+    - name: Publish to gallery
       shell: pwsh
       run: |
-        Set-Location -Path '${{ github.workspace }}/publish'
-        Get-ChildItem
+        Publish-Module -NuGetApiKey '${{ secrets.psgallery_secret }}' -Path '${{ github.workspace }}/publish/${{ env.module_name }}'

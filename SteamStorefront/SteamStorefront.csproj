@@ -14,7 +14,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\SteamStorefrontAPI\LICENSE.md">
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -24,20 +29,17 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="SteamStorefrontAPI" Version="2.0.0.131" />
-    <PackageReference Include="System.Management.Automation" Version="7.3.0" />
+    <PackageReference Include="System.Management.Automation" Version="7.2.7" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="README.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="SteamStorefront.psd1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="dotnet publish $(ProjectPath) -c $(ConfigurationName) -o $(TargetDir) --no-build --self-contained&#xD;&#xA;pwsh -NoProfile -ExecutionPolicy Bypass -NonInteractive -file UpdateModuleManifest.ps1 -modulePath &quot;$(TargetDir)SteamStorefront.psd1&quot; -moduleVersion &quot;$(PackageVersion)&quot; -moduleOwner &quot;$(Authors)&quot; -moduleDescription &quot;$(Description)&quot; -moduleCopyright &quot;$(Copyright)&quot; -targetPath &quot;$(TargetFileName)&quot;&#xD;&#xA;xcopy /E /Y &quot;$(TargetDir)runtimes\win-x64\native&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;RD /S /Q &quot;$(TargetDir)runtimes\&quot;" />
+    <Exec Command="dotnet publish $(ProjectPath) -c $(ConfigurationName) -o $(TargetDir) --no-build --self-contained -p:OutDir=$(TargetDir)&#xD;&#xA;pwsh -NoProfile -ExecutionPolicy Bypass -NonInteractive -file UpdateModuleManifest.ps1 -modulePath &quot;$(TargetDir)SteamStorefront.psd1&quot; -moduleVersion &quot;$(PackageVersion)&quot; -moduleOwner &quot;$(Authors)&quot; -moduleDescription &quot;$(Description)&quot; -moduleCopyright &quot;$(Copyright)&quot; -targetPath &quot;$(TargetFileName)&quot;&#xD;&#xA;xcopy /E /Y &quot;$(TargetDir)runtimes\win-x64\native&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;RD /S /Q &quot;$(TargetDir)runtimes\&quot;" />
   </Target>
 
 </Project>
