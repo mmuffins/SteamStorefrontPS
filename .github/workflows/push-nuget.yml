@@ -16,11 +16,7 @@ jobs:
     timeout-minutes: 5
 
     steps:
-    - name: Build Help
-      shell: pwsh
-      run: $PSVersionTable
-
-    - name: Checkout
+,    - name: Checkout
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
@@ -58,9 +54,7 @@ jobs:
       shell: pwsh
       run: |
         $PSVersionTable
-        get-childitem -path "${{ github.workspace }}/publish/${{ env.module_name }}"
         Import-Module platyPS
-        Import-Module -Name "${{ github.workspace }}/publish/${{ env.module_name }}"
         New-ExternalHelp -Path "${{ github.workspace }}/${{ env.module_name }}/help" -OutputPath "${{ github.workspace }}/publish/${{ env.module_name }}"
 
     - name: Upload build artifacts
